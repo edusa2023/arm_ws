@@ -77,12 +77,4 @@ Note: If running on a Virtual Machine (VM) and the Gazebo screen is black, pleas
 
     Demo Video: Please refer to demo_video.mp4 included in this folder.
 
-    Safety Limits: Joint limits are restricted to ±1.57 rad (±90°) to comply with the "reasonable ranges" constraint.
-
-    Anti-Jitter Tuning: Initial tests showed vibration/oscillation at hold positions. I eliminated this by:
-
-        Zeroing I-Gain: Integral gain was causing steady-state hunting, so I set it to 0.0.
-
-        High Damping: I increased joint damping (values between 5.0 - 10.0) and friction. This acts as a mechanical damper, making the movement feel "heavy" and industrial.
-
-        Adjusted P-Gain: I lowered the Proportional gain to prevent aggressive overshooting.
+    
