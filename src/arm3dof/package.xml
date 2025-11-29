@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>arm3dof</name>
+  <version>0.0.1</version>
+  <description>ITU ERO Assignment</description>
+  <maintainer email="asdbykr@gmail.com">Asude</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>
