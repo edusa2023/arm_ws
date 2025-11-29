@@ -26,7 +26,7 @@ This package utilizes `ament_cmake`. To run this on a fresh machine, please foll
     colcon build
     source install/setup.bash
 
- How to Run
+ ### How to Run
 
 Launch the simulation world, the ROS-Gazebo bridge, and the custom controller node with a single command:
 Bash
@@ -35,7 +35,7 @@ ros2 launch arm3dof arm_demo.launch.py
 
 Note: If running on a Virtual Machine (VM) and the Gazebo screen is black, please run export LIBGL_ALWAYS_SOFTWARE=1 before launching.
 
- Design Notes
+ #### Design Notes
 
 1. Modeling & Physics Strategy
 
@@ -60,6 +60,22 @@ Note: If running on a Virtual Machine (VM) and the Gazebo screen is black, pleas
         C: [-1.57, 0.5, -0.5]
 
 3. Tuning (PID & Limits)
+
+    Safety Limits: Joint limits are restricted to ±1.57 rad (±90°) to comply with the "reasonable ranges" constraint.
+
+    Anti-Jitter Tuning: Initial tests showed vibration/oscillation at hold positions. I eliminated this by:
+
+        Zeroing I-Gain: Integral gain was causing steady-state hunting, so I set it to 0.0.
+
+        High Damping: I increased joint damping (values between 5.0 - 10.0) and friction. This acts as a mechanical damper, making the movement feel "heavy" and industrial.
+
+        Adjusted P-Gain: I lowered the Proportional gain to prevent aggressive overshooting.
+
+#####  Deliverables
+
+    Topic Graph: Please refer to topic_graph.png included in this folder.
+
+    Demo Video: Please refer to demo_video.mp4 included in this folder.
 
     Safety Limits: Joint limits are restricted to ±1.57 rad (±90°) to comply with the "reasonable ranges" constraint.
 
